@@ -1,10 +1,10 @@
-import SipmpleLightbox from 'simplelightbox';
+import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const galleryEl = document.querySelector('.gallery');
 const loaderEL = document.querySelector('.loader');
 
-const lightbox = new SipmpleLightbox('.gallery a', {
+const lightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionDelay: 250,
 });
@@ -48,7 +48,12 @@ export function clearGallery() {
   galleryEl.innerHTML = '';
 }
 
+export function showLoader() {
+  if (!loaderEL) return;
+  loaderEL.classList.remove('is-hidden');
+}
+
 export function hideLoader() {
   if (!loaderEL) return;
-  loaderEL.clearList.add('is-hidden');
+  loaderEL.classList.add('is-hidden');
 }

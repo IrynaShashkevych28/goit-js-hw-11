@@ -32,10 +32,10 @@ function onSearch(event) {
     .then(data => {
       const images = data.hits;
 
-      if (!images || images.length === 0) {
+      if (images.length === 0) {
         iziToast.error({
           message:
-            'Sorry there is no images matching your search query. Please try again!',
+            'Sorry, there are no images matching your search query. Please try again!',
           position: 'topRight',
         });
         return;
@@ -44,7 +44,7 @@ function onSearch(event) {
     })
     .catch(() => {
       iziToast.error({
-        message: 'Something went wrong. Please try again',
+        message: 'Something went wrong. Please try again.',
         position: 'topRight',
       });
     })
